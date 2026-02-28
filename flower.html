@@ -4,15 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <title>GARDEN OF ROSES & FIREFLIES</title>
+  <title>FLOWERS FOR YOU</title>
   <style>
-    /* Dasar & Background Bintang */
-    body { background: #000 !important; margin: 0; overflow: hidden; }
+    /* 1. WARNA MAWAR MERAH & DAUN HIJAU GELAP */
+    :root {
+      --color-rose: #ff0000;
+      --color-rose-dark: #8b0000;
+      --color-leaf: #063506;
+      --color-grass: #1a4d1a;
+    }
+
+    body { background-color: #000 !important; margin: 0; overflow: hidden; }
     .title, #title { display: none !important; }
 
-    /* Pesan Neon Putih */
+    /* 2. TEKS NEON PUTIH */
     .container-pesan-baru {
-      position: fixed; top: 18%; left: 50%;
+      position: fixed; top: 20%; left: 50%;
       transform: translate(-50%, -50%);
       width: 85%; text-align: center; z-index: 10000;
     }
@@ -21,45 +28,27 @@
       line-height: 1.6; text-shadow: 0 0 10px #fff, 0 0 20px #fff;
     }
 
-    /* PAKSA WARNA MAWAR MERAH */
+    /* 3. MODIFIKASI CSS UNTUK MAWAR (STRUKTUR FIQTOR) */
     .flower__leaf {
-      background: linear-gradient(to top, #8b0000, #ff0000) !important;
+      background-image: linear-gradient(to top, var(--color-rose-dark), var(--color-rose)) !important;
       border-radius: 50% 50% 20% 20% !important;
     }
-    .flower__white-circle { background: #ffda00 !important; }
+    .flower__line { background-image: linear-gradient(to left, #000, var(--color-leaf), #000) !important; }
+    .flower__line__leaf { background-image: linear-gradient(to top, rgba(7, 51, 7, 0.4), var(--color-leaf)) !important; }
 
-    /* RUMPUT HIJAU LEBIH HIDUP & BANYAK */
-    .grass-field {
-      position: fixed; bottom: 0; left: 0;
-      width: 100%; height: 150px;
-      display: flex; align-items: flex-end; justify-content: space-around;
-      z-index: 5000; pointer-events: none;
-    }
-    .grass-blade {
-      width: 3px; background: linear-gradient(to top, #051a05, #228b22, #32cd32);
-      border-radius: 10px 10px 0 0;
-      transform-origin: bottom;
-      animation: sway 3s ease-in-out infinite alternate;
-    }
-    @keyframes sway {
-      0% { transform: rotate(-8deg) scaleY(1); }
-      100% { transform: rotate(8deg) scaleY(1.1); }
-    }
-
-    /* KUNANG-KUNANG RAMAI (20 BIJI) */
+    /* 4. KUNANG-KUNANG RAMAI (HIDUP) */
     .firefly {
-      position: fixed; width: 4px; height: 4px;
-      background: #ffffaa; border-radius: 50%;
-      box-shadow: 0 0 10px #ffff00, 0 0 20px #ffffaa;
-      z-index: 8000; pointer-events: none;
-      animation: fly 6s infinite ease-in-out, blink 2s infinite alternate;
+      position: fixed; width: 3px; height: 3px; background: #ffffaa;
+      border-radius: 50%; box-shadow: 0 0 10px #ffff00;
+      z-index: 9999; pointer-events: none;
+      animation: flyFirefly 8s infinite ease-in-out alternate, blink 2s infinite;
     }
-    @keyframes fly {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(30px, -50px); }
-      100% { transform: translate(-20px, -100px); }
+    @keyframes flyFirefly {
+      0% { transform: translate(0,0); }
+      50% { transform: translate(100px, -150px); }
+      100% { transform: translate(-50px, -300px); }
     }
-    @keyframes blink { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+    @keyframes blink { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
   </style>
 </head>
 <body class="not-loaded">
@@ -67,13 +56,11 @@
 
   <div class="container-pesan-baru">
     <p class="teks-neon-putih">
-      "aku minta maaf yaa sayang, aku semalam betul" ngerasa bersalah karena kurang menghargai ko apalagii ko nya udah mau excited untuk ceritaa... aku bakal terus berubah agarr jadi yang terbaik buat ko sayang..."
+      "aku minta maaf yaa sayang, aku semalam betul" ngerasa bersalah karena kurang menghargai ko... aku bakal terus berubah agarr jadi yang terbaik buat ko sayang..."
     </p>
   </div>
 
-  <div class="grass-field" id="grassContainer"></div>
-
-  <div id="fireflyContainer"></div>
+  <div id="fireflies"></div>
 
   <div class="flowers">
     <div class="flower flower--1">
@@ -82,41 +69,54 @@
         <div class="flower__leaf flower__leaf--3"></div><div class="flower__leaf flower__leaf--4"></div>
         <div class="flower__white-circle"></div>
       </div>
-      <div class="flower__line"></div>
-    </div>
-    <div class="flower flower--2">
-      <div class="flower__leafs">
-        <div class="flower__leaf flower__leaf--1"></div><div class="flower__leaf flower__leaf--2"></div>
-        <div class="flower__leaf flower__leaf--3"></div><div class="flower__leaf flower__leaf--4"></div>
-        <div class="flower__white-circle"></div>
+      <div class="flower__line">
+        <div class="flower__line__leaf flower__line__leaf--1"></div>
+        <div class="flower__line__leaf flower__line__leaf--2"></div>
       </div>
-      <div class="flower__line"></div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--1">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="long-g long-g--0">
+      <div class="grow-ans" style="--d:2.4s"><div class="leaf leaf--0"></div></div>
+      <div class="grow-ans" style="--d:3s"><div class="leaf leaf--1"></div></div>
+    </div>
+
+    <div class="long-g long-g--1">
+      <div class="grow-ans" style="--d:3.6s"><div class="leaf leaf--0"></div></div>
+      <div class="grow-ans" style="--d:4.2s"><div class="leaf leaf--1"></div></div>
+    </div>
+    
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--2">
+        <div class="flower__grass--top"></div><div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+      </div>
     </div>
   </div>
 
   <audio id="laguKeabadian" src="Reza_-_keabadian_(mp3.pm).mp3" loop autoplay></audio>
   <script src="js/main.js"></script>
   <script>
-    // GENERATE RUMPUT OTOMATIS (Biar Hijo!)
-    const grassContainer = document.getElementById('grassContainer');
-    for(let i=0; i<80; i++) {
-      const blade = document.createElement('div');
-      blade.className = 'grass-blade';
-      blade.style.left = Math.random() * 100 + '%';
-      blade.style.height = (30 + Math.random() * 60) + 'px';
-      blade.style.animationDelay = Math.random() * 2 + 's';
-      grassContainer.appendChild(blade);
-    }
-
-    // GENERATE KUNANG-KUNANG (Biar Hidup!)
-    const ffContainer = document.getElementById('fireflyContainer');
-    for(let i=0; i<20; i++) {
+    // BIKIN KUNANG-KUNANG JADI 25 BIJI
+    const container = document.getElementById('fireflies');
+    for (let i = 0; i < 25; i++) {
       const ff = document.createElement('div');
       ff.className = 'firefly';
-      ff.style.left = Math.random() * 100 + '%';
-      ff.style.top = (40 + Math.random() * 50) + '%';
+      ff.style.left = Math.random() * 100 + 'vw';
+      ff.style.top = (50 + Math.random() * 50) + 'vh';
       ff.style.animationDelay = Math.random() * 5 + 's';
-      ffContainer.appendChild(ff);
+      container.appendChild(ff);
     }
 
     window.addEventListener('click', () => { document.getElementById('laguKeabadian').play(); }, { once: true });
