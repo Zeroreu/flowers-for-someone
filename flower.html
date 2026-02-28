@@ -7,10 +7,10 @@
   <link rel="shortcut icon" href="images/gift.png" type="image/x-icon">
   <title>FLOWERS</title>
   <style>
-    /* Style teks permintaan maaf yang lebih kecil & rapi */
-    .container-pesan {
+    /* Style teks permintaan maaf yang minimalis */
+    .overlay-teks {
       position: fixed;
-      top: 50%;
+      top: 20%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 80%;
@@ -18,27 +18,27 @@
       z-index: 9999;
     }
     .teks-maaf {
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(255, 255, 255, 0.8);
       font-family: sans-serif;
-      font-size: 0.85rem; 
-      line-height: 1.6;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 15px;
-      animation: fadeIn 5s ease-in;
+      font-size: 0.8rem; /* Ukuran kecil sesuai permintaan */
+      line-height: 1.5;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 10px 15px;
+      border-radius: 10px;
+      animation: fadeIn 5s;
     }
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    /* Menghilangkan judul I LOVE U secara paksa */
+    /* Menghilangkan judul I LOVE U */
     .title { display: none !important; }
   </style>
 </head>
 <body class="not-loaded">
   <div class="night"></div>
 
-  <div class="container-pesan">
+  <div class="overlay-teks">
     <p class="teks-maaf">
       "aku minta maaf yaa sayang atas beberapa kekurangan aku, aku sadar aku masihh perlu banyak berubah agar bisa jadi lebih baik kedepan nya, buat aku, dan juga buat ko"
     </p>
@@ -52,9 +52,25 @@
         <div class="flower__leaf flower__leaf--3"></div>
         <div class="flower__leaf flower__leaf--4"></div>
         <div class="flower__white-circle"></div>
+        <div class="flower__light flower__light--1"></div>
+        <div class="flower__light flower__light--2"></div>
+        <div class="flower__light flower__light--3"></div>
+        <div class="flower__light flower__light--4"></div>
+        <div class="flower__light flower__light--5"></div>
+        <div class="flower__light flower__light--6"></div>
+        <div class="flower__light flower__light--7"></div>
+        <div class="flower__light flower__light--8"></div>
       </div>
-      <div class="flower__line"></div>
+      <div class="flower__line">
+        <div class="flower__line__leaf flower__line__leaf--1"></div>
+        <div class="flower__line__leaf flower__line__leaf--2"></div>
+        <div class="flower__line__leaf flower__line__leaf--3"></div>
+        <div class="flower__line__leaf flower__line__leaf--4"></div>
+        <div class="flower__line__leaf flower__line__leaf--5"></div>
+        <div class="flower__line__leaf flower__line__leaf--6"></div>
+      </div>
     </div>
+
     <div class="flower flower--2">
       <div class="flower__leafs flower__leafs--2">
         <div class="flower__leaf flower__leaf--1"></div>
@@ -63,8 +79,14 @@
         <div class="flower__leaf flower__leaf--4"></div>
         <div class="flower__white-circle"></div>
       </div>
-      <div class="flower__line"></div>
+      <div class="flower__line">
+        <div class="flower__line__leaf flower__line__leaf--1"></div>
+        <div class="flower__line__leaf flower__line__leaf--2"></div>
+        <div class="flower__line__leaf flower__line__leaf--3"></div>
+        <div class="flower__line__leaf flower__line__leaf--4"></div>
+      </div>
     </div>
+
     <div class="flower flower--3">
       <div class="flower__leafs flower__leafs--3">
         <div class="flower__leaf flower__leaf--1"></div>
@@ -73,9 +95,22 @@
         <div class="flower__leaf flower__leaf--4"></div>
         <div class="flower__white-circle"></div>
       </div>
-      <div class="flower__line"></div>
+      <div class="flower__line">
+        <div class="flower__line__leaf flower__line__leaf--1"></div>
+        <div class="flower__line__leaf flower__line__leaf--2"></div>
+        <div class="flower__line__leaf flower__line__leaf--3"></div>
+        <div class="flower__line__leaf flower__line__leaf--4"></div>
+      </div>
+    </div>
+
+    <div class="grow-ans" style="--d:1.2s"><div class="flower__g-long"><div class="flower__g-long__top"></div><div class="flower__g-long__bottom"></div></div></div>
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--1"><div class="flower__grass--top"></div><div class="flower__grass--bottom"></div><div class="flower__grass__overlay"></div></div>
+      <div class="flower__grass flower__grass--2"><div class="flower__grass--top"></div><div class="flower__grass--bottom"></div><div class="flower__grass__overlay"></div></div>
     </div>
   </div>
+
+  <h1 class="title"><span id="title"></span></h1>
 
   <audio id="laguKeabadian" src="Reza_-_keabadian_(mp3.pm).mp3" loop autoplay></audio>
 
