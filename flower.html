@@ -9,87 +9,41 @@
 body{
   margin:0;
   height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:flex-end;
   background:radial-gradient(circle at top,#0a0a2a,#000);
   overflow:hidden;
   font-family:sans-serif;
-}
-
-/* container */
-.scene{
-  position:relative;
-  height:400px;
   display:flex;
-  gap:60px;
+  justify-content:center;
+  align-items:flex-end;
+  color:white;
 }
 
-/* batang */
-.stem{
-  width:6px;
-  height:200px;
-  background:linear-gradient(to top,#013d00,#00ff66);
-  margin:auto;
-  position:relative;
-  animation:sway 3s ease-in-out infinite alternate;
-}
-
-/* daun batang */
-.stem::before,
-.stem::after{
+/* bintang */
+body::before{
   content:"";
-  position:absolute;
-  width:40px;
-  height:20px;
-  background:linear-gradient(to right,#0f5f00,#1aff00);
-  border-radius:50%;
-}
-.stem::before{
-  left:-35px;
-  top:80px;
-  transform:rotate(-30deg);
-}
-.stem::after{
-  right:-35px;
-  top:120px;
-  transform:rotate(30deg);
+  position:fixed;
+  width:100%;
+  height:100%;
+  background-image:radial-gradient(white 1px,transparent 1px);
+  background-size:40px 40px;
+  opacity:0.3;
+  animation:stars 60s linear infinite;
 }
 
-/* bunga */
-.flower{
-  position:absolute;
-  top:-60px;
-  left:-47px;
-  width:100px;
-  height:100px;
-  animation:sway 3s ease-in-out infinite alternate;
+@keyframes stars{
+  from{transform:translateY(0);}
+  to{transform:translateY(-1000px);}
 }
 
-/* kelopak */
-.petal{
+/* teks */
+.message{
   position:absolute;
-  width:60px;
-  height:60px;
-  background:linear-gradient(to top,#8b0000,#ff0000);
-  border-radius:50%;
-  box-shadow:0 0 15px rgba(255,0,0,0.7);
-}
-.p1{top:0;left:20px;}
-.p2{top:20px;left:0;}
-.p3{top:20px;right:0;}
-.p4{bottom:0;left:20px;}
-
-/* tengah */
-.center{
-  position:absolute;
-  width:40px;
-  height:40px;
-  background:#4a0000;
-  border-radius:50%;
-  top:30px;
-  left:30px;
-  box-shadow:0 0 20px red;
+  top:6%;
+  width:85%;
+  text-align:center;
+  font-size:0.85rem;
+  line-height:1.6;
+  text-shadow:0 0 12px white;
 }
 
 /* rumput */
@@ -97,7 +51,7 @@ body{
   position:absolute;
   bottom:0;
   width:100%;
-  height:80px;
+  height:120px;
   background:linear-gradient(to top,#012d00,#00ff66);
   clip-path:polygon(
     0% 100%, 5% 70%, 10% 100%, 15% 60%, 20% 100%,
@@ -106,51 +60,98 @@ body{
     65% 65%, 70% 100%, 75% 55%, 80% 100%,
     85% 70%, 90% 100%, 95% 60%, 100% 100%
   );
-  box-shadow:0 0 30px #00ff66;
-  animation:grassMove 4s ease-in-out infinite alternate;
+  box-shadow:0 0 40px #00ff66;
 }
 
-/* animasi */
+/* scene */
+.scene{
+  position:relative;
+  height:350px;
+  display:flex;
+  gap:80px;
+}
+
+/* batang */
+.stem{
+  width:6px;
+  height:220px;
+  background:linear-gradient(to top,#013d00,#00ff66);
+  position:relative;
+  animation:sway 3s ease-in-out infinite alternate;
+}
+
+/* daun */
+.stem::before,
+.stem::after{
+  content:"";
+  position:absolute;
+  width:45px;
+  height:20px;
+  background:linear-gradient(to right,#0f5f00,#1aff00);
+  border-radius:50%;
+}
+.stem::before{
+  left:-40px;
+  top:90px;
+  transform:rotate(-30deg);
+}
+.stem::after{
+  right:-40px;
+  top:140px;
+  transform:rotate(30deg);
+}
+
+/* bunga */
+.flower{
+  position:absolute;
+  top:-70px;
+  left:-47px;
+  width:100px;
+  height:100px;
+}
+
+/* kelopak merah */
+.petal{
+  position:absolute;
+  width:65px;
+  height:65px;
+  background:linear-gradient(to top,#8b0000,#ff0000);
+  border-radius:50%;
+  box-shadow:0 0 20px rgba(255,0,0,0.8);
+}
+.p1{top:0;left:20px;}
+.p2{top:25px;left:0;}
+.p3{top:25px;right:0;}
+.p4{bottom:0;left:20px;}
+
+/* tengah bunga */
+.center{
+  position:absolute;
+  width:40px;
+  height:40px;
+  background:#4a0000;
+  border-radius:50%;
+  top:35px;
+  left:30px;
+  box-shadow:0 0 25px red;
+}
+
 @keyframes sway{
   from{transform:rotate(-2deg);}
   to{transform:rotate(2deg);}
 }
-
-@keyframes grassMove{
-  from{transform:translateX(-5px);}
-  to{transform:translateX(5px);}
-}
-
-/* teks */
-.message{
-  position:absolute;
-  top:40px;
-  width:100%;
-  text-align:center;
-  color:white;
-  font-size:0.9rem;
-  text-shadow:0 0 10px white;
-}
 </style>
 </head>
+
 <body>
 
 <div class="message">
-aku minta maaf yaa sayang, aku bakal jadi lebih baik buat ko 🌹
+"aku minta maaf yaa sayang, aku semalam betul" ngerasa bersalah karena kurang menghargai ko apalagii ko nya udah mau excited untuk ceritaa, bukann maksud aku untukk mengungkit lagii kok, aku cuman masih di penuhi rasa bersalah, tapi aku bakal terus berubah agarr jadi yang terbaik buat ko sayang, dan aku bakal selalu ada untuk ko sayangg, aku ngerasa aku banyak kurang, tapi aku bakal berusaha untuk jadi yang terbaik, bagi diri aku, dan untuk ko"
 </div>
 
 <div class="grass"></div>
 
 <div class="scene">
-  <div class="stem">
-    <div class="flower">
-      <div class="petal p1"></div>
-      <div class="petal p2"></div>
-      <div class="petal p3"></div>
-      <div class="petal p4"></div>
-      <div class="center"></div>
-    </div>
-  </div>
 
   <div class="stem">
     <div class="flower">
@@ -171,7 +172,26 @@ aku minta maaf yaa sayang, aku bakal jadi lebih baik buat ko 🌹
       <div class="center"></div>
     </div>
   </div>
+
+  <div class="stem">
+    <div class="flower">
+      <div class="petal p1"></div>
+      <div class="petal p2"></div>
+      <div class="petal p3"></div>
+      <div class="petal p4"></div>
+      <div class="center"></div>
+    </div>
+  </div>
+
 </div>
+
+<audio id="bgm" src="Reza_-_keabadian_(mp3.pm).mp3" loop></audio>
+
+<script>
+window.addEventListener("click", function(){
+  document.getElementById("bgm").play();
+},{once:true});
+</script>
 
 </body>
 </html>
