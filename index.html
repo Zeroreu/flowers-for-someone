@@ -31,16 +31,23 @@
   </div>
 
   <script src="js/index.js"></script>
-  <audio id="laguKeabadian" src="Reza_-_keabadian_(mp3.pm).mp3" loop></audio>
+<audio id="laguKeabadian" src="Reza_-_keabadian_(mp3.pm).mp3" loop prefetch></audio>
 
 <script>
-  // Musik akan berputar saat layar pertama kali diklik
-  window.addEventListener('click', function() {
-      const audio = document.getElementById('laguKeabadian');
-      audio.play().catch(function(error) {
-          console.log("Gagal putar musik: ", error);
+  const audio = document.getElementById('laguKeabadian');
+  
+  // Fungsi untuk memutar musik
+  function putarMusik() {
+      audio.play().then(() => {
+          console.log("Musik Berhasil Diputar!");
+      }).catch((error) => {
+          console.log("Gagal: " + error.message);
       });
-  }, { once: true });
+  }
+
+  // Coba putar saat layar diklik atau disentuh
+  window.addEventListener('click', putarMusik, { once: true });
+  window.addEventListener('touchstart', putarMusik, { once: true });
 </script>
 
 </body>
