@@ -5,19 +5,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <title>MAWAR MERAH RIMBUN</title>
+  <title>TAMAN MAWAR MERAH LENGKAP</title>
   <style>
-    /* PAKSA WARNA MERAH UNTUK SEMUA JENIS BUNGA */
-    .flower__leaf, .flower__g-fr__leaf, .flower__grass__leaf {
+    /* 1. PAKSA WARNA MERAH UNTUK SEMUA MAWAR */
+    .flower__leaf {
       background-image: linear-gradient(to top, #8b0000, #ff0000) !important;
     }
     .flower__white-circle { background-color: #4a0000 !important; }
     
-    /* TEKS MAAF KECIL */
+    /* 2. ATUR POSISI AGAR TIDAK SETANGKAI (TERBAR) */
+    .flower--1 { transform: translateX(-80px) scale(0.9); } /* Mawar Kiri */
+    .flower--2 { transform: translateX(0px) scale(1.1); }   /* Mawar Tengah */
+    .flower--3 { transform: translateX(80px) scale(0.9); }  /* Mawar Kanan */
+
+    /* 3. TEKS PESAN MAAF KECIL */
     .container-pesan-baru {
       position: fixed; top: 15%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 80%; text-align: center; z-index: 10000;
+      width: 85%; text-align: center; z-index: 10000;
     }
     .teks-kecil {
       color: #fff; font-family: sans-serif; font-size: 0.65rem;
@@ -25,14 +30,14 @@
     }
     .title, #title { display: none !important; }
 
-    /* KUNANG-KUNANG */
+    /* 4. KUNANG-KUNANG */
     .firefly {
       position: fixed; width: 3px; height: 3px; background: #ffffaa;
       border-radius: 50%; box-shadow: 0 0 8px #ffff00;
       z-index: 999; pointer-events: none;
-      animation: flyFirefly 8s infinite ease-in-out alternate, blink 2s infinite;
+      animation: fly 8s infinite ease-in-out alternate, blink 2s infinite;
     }
-    @keyframes flyFirefly { 0% { transform: translate(0,0); } 100% { transform: translate(50px, -150px); } }
+    @keyframes fly { 0% { transform: translate(0,0); } 100% { transform: translate(40px, -120px); } }
     @keyframes blink { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
   </style>
 </head>
@@ -45,7 +50,7 @@
     </p>
   </div>
 
-  <div id="fireflies"></div>
+  <div id="ff-box"></div>
 
   <div class="flowers">
     <div class="flower flower--1">
@@ -66,11 +71,24 @@
       <div class="flower__line"><div class="flower__line__leaf flower__line__leaf--1"></div></div>
     </div>
 
+    <div class="flower flower--3">
+      <div class="flower__leafs">
+        <div class="flower__leaf flower__leaf--1"></div><div class="flower__leaf flower__leaf--2"></div>
+        <div class="flower__leaf flower__leaf--3"></div><div class="flower__leaf flower__leaf--4"></div>
+        <div class="flower__white-circle"></div>
+      </div>
+      <div class="flower__line"><div class="flower__line__leaf flower__line__leaf--1"></div></div>
+    </div>
+
     <div class="growing-grass">
       <div class="flower__grass flower__grass--1">
         <div class="flower__grass--top"></div><div class="flower__grass--bottom"></div>
         <div class="flower__grass__leaf flower__grass__leaf--1"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+      <div class="flower__grass flower__grass--2">
+        <div class="flower__grass--top"></div><div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
         <div class="flower__grass__overlay"></div>
       </div>
     </div>
@@ -79,25 +97,24 @@
       <div class="grow-ans" style="--d:3s"><div class="leaf leaf--0"></div></div>
       <div class="grow-ans" style="--d:2.2s"><div class="leaf leaf--1"></div></div>
     </div>
-
     <div class="long-g long-g--1">
       <div class="grow-ans" style="--d:3.6s"><div class="leaf leaf--0"></div></div>
       <div class="grow-ans" style="--d:4s"><div class="leaf leaf--2"></div></div>
     </div>
   </div>
 
-  <audio id="laguKeabadian" src="Reza_-_keabadian_(mp3.pm).mp3" loop autoplay></audio>
+  <audio id="lagu" src="Reza_-_keabadian_(mp3.pm).mp3" loop autoplay></audio>
   <script src="js/main.js"></script>
   <script>
-    const box = document.getElementById('fireflies');
-    for (let i = 0; i < 25; i++) {
+    const box = document.getElementById('ff-box');
+    for (let i = 0; i < 20; i++) {
         const f = document.createElement('div');
         f.className = 'firefly';
         f.style.left = Math.random() * 100 + 'vw';
         f.style.top = (45 + Math.random() * 45) + 'vh';
         box.appendChild(f);
     }
-    window.addEventListener('click', function() { document.getElementById('laguKeabadian').play(); }, { once: true });
+    window.addEventListener('click', () => { document.getElementById('lagu').play(); }, { once: true });
   </script>
 </body>
 </html>
