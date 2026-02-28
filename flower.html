@@ -8,7 +8,22 @@
   <link rel="stylesheet" href="css/style.css">
   <title>FLOWERS</title>
   <style>
-    /* Hanya menambah style untuk pesan maaf agar rapi di atas */
+    /* --- KODE BARU UNTUK MEMBUAT KELOPAK JADI MERAH --- */
+    .flower__leaf {
+      /* Paksa warna kelopak jadi merah mawar */
+      background-image: linear-gradient(to top, #8b0000, #ff0000) !important;
+      background-color: #ff0000 !important;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.5) !important;
+      opacity: 1 !important;
+    }
+
+    /* Ubah bagian tengah bunga agar lebih gelap */
+    .flower__white-circle {
+      background-color: #4a0000 !important;
+    }
+    /* ------------------------------------------------ */
+
+    /* Style untuk pesan maaf kamu di atas */
     .container-pesan-maaf {
       position: fixed;
       top: 15%;
@@ -25,8 +40,10 @@
       line-height: 1.5;
       text-shadow: 0 0 10px rgba(255,255,255,0.8);
     }
-    /* Sembunyikan I LOVE U bawaan */
-    .title, #title { display: none !important; }
+    /* Sembunyikan I LOVE U bawaan agar tidak tumpang tindih */
+    .title, #title {
+      display: none !important;
+    }
   </style>
 </head>
 <body class="not-loaded">
@@ -114,7 +131,6 @@
     </div>
 
     <div class="grow-ans" style="--d:1.2s"><div class="flower__g-long"><div class="flower__g-long__top"></div><div class="flower__g-long__bottom"></div></div></div>
-
     <div class="growing-grass">
       <div class="flower__grass flower__grass--1">
         <div class="flower__grass--top"></div><div class="flower__grass--bottom"></div>
@@ -125,7 +141,6 @@
         <div class="flower__grass__overlay"></div>
       </div>
     </div>
-
     <div class="growing-grass">
       <div class="flower__grass flower__grass--2">
         <div class="flower__grass--top"></div><div class="flower__grass--bottom"></div>
@@ -136,10 +151,8 @@
         <div class="flower__grass__overlay"></div>
       </div>
     </div>
-
     <div class="grow-ans" style="--d:2.4s"><div class="flower__g-right flower__g-right--1"><div class="leaf"></div></div></div>
     <div class="grow-ans" style="--d:2.8s"><div class="flower__g-right flower__g-right--2"><div class="leaf"></div></div></div>
-
     <div class="grow-ans" style="--d:2.8s">
       <div class="flower__g-front">
         <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--1"><div class="flower__g-front__leaf"></div></div>
@@ -153,7 +166,6 @@
         <div class="flower__g-front__line"></div>
       </div>
     </div>
-
     <div class="grow-ans" style="--d:3.2s">
       <div class="flower__g-fr">
         <div class="leaf"></div>
@@ -163,56 +175,48 @@
         <div class="flower__g-fr__leaf flower__g-fr__leaf--7"></div><div class="flower__g-fr__leaf flower__g-fr__leaf--8"></div>
       </div>
     </div>
-
     <div class="long-g long-g--0">
       <div class="grow-ans" style="--d:3s"><div class="leaf leaf--0"></div></div>
       <div class="grow-ans" style="--d:2.2s"><div class="leaf leaf--1"></div></div>
       <div class="grow-ans" style="--d:3.4s"><div class="leaf leaf--2"></div></div>
       <div class="grow-ans" style="--d:3.6s"><div class="leaf leaf--3"></div></div>
     </div>
-
     <div class="long-g long-g--1">
       <div class="grow-ans" style="--d:3.6s"><div class="leaf leaf--0"></div></div>
       <div class="grow-ans" style="--d:3.8s"><div class="leaf leaf--1"></div></div>
       <div class="grow-ans" style="--d:4s"><div class="leaf leaf--2"></div></div>
       <div class="grow-ans" style="--d:4.2s"><div class="leaf leaf--3"></div></div>
     </div>
-
     <div class="long-g long-g--2">
       <div class="grow-ans" style="--d:4s"><div class="leaf leaf--0"></div></div>
       <div class="grow-ans" style="--d:4.2s"><div class="leaf leaf--1"></div></div>
       <div class="grow-ans" style="--d:4.4s"><div class="leaf leaf--2"></div></div>
       <div class="grow-ans" style="--d:4.6s"><div class="leaf leaf--3"></div></div>
     </div>
-
     <div class="long-g long-g--3">
       <div class="grow-ans" style="--d:4s"><div class="leaf leaf--0"></div></div>
       <div class="grow-ans" style="--d:4.2s"><div class="leaf leaf--1"></div></div>
       <div class="grow-ans" style="--d:3s"><div class="leaf leaf--2"></div></div>
       <div class="grow-ans" style="--d:3.6s"><div class="leaf leaf--3"></div></div>
     </div>
-
     <div class="long-g long-g--4">
       <div class="grow-ans" style="--d:4s"><div class="leaf leaf--0"></div></div>
       <div class="grow-ans" style="--d:4.2s"><div class="leaf leaf--1"></div></div>
       <div class="grow-ans" style="--d:3s"><div class="leaf leaf--2"></div></div>
       <div class="grow-ans" style="--d:3.6s"><div class="leaf leaf--3"></div></div>
     </div>
-
     <div class="long-g long-g--5">
       <div class="grow-ans" style="--d:4s"><div class="leaf leaf--0"></div></div>
       <div class="grow-ans" style="--d:4.2s"><div class="leaf leaf--1"></div></div>
       <div class="grow-ans" style="--d:3s"><div class="leaf leaf--2"></div></div>
       <div class="grow-ans" style="--d:3.6s"><div class="leaf leaf--3"></div></div>
     </div>
-
     <div class="long-g long-g--6">
       <div class="grow-ans" style="--d:4.2s"><div class="leaf leaf--0"></div></div>
       <div class="grow-ans" style="--d:4.4s"><div class="leaf leaf--1"></div></div>
       <div class="grow-ans" style="--d:4.6s"><div class="leaf leaf--2"></div></div>
       <div class="grow-ans" style="--d:4.8s"><div class="leaf leaf--3"></div></div>
     </div>
-
     <div class="long-g long-g--7">
       <div class="grow-ans" style="--d:3s"><div class="leaf leaf--0"></div></div>
       <div class="grow-ans" style="--d:3.2s"><div class="leaf leaf--1"></div></div>
