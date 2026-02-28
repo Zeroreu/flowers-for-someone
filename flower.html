@@ -6,50 +6,54 @@
   <link rel="stylesheet" href="css/style.css">
   <title>FOR YOU</title>
   <style>
-    /* CSS BARU AGAR TULISAN PASTI MUNCUL */
-    .pesan-maaf {
+    /* CSS untuk teks permintaan maaf yang lebih kecil */
+    .pesan-paling-atas {
       position: fixed;
-      top: 15%; /* Posisi di atas bunga */
+      top: 20%; 
       left: 50%;
-      transform: translateX(-50%);
-      width: 85%;
+      transform: translate(-50%, -50%);
+      width: 80%;
       text-align: center;
-      z-index: 99999; /* Angka besar agar di atas bunga */
-      background: rgba(0, 0, 0, 0.3); /* Background tipis agar teks terbaca */
-      padding: 15px;
-      border-radius: 15px;
+      z-index: 999999 !important;
+      pointer-events: none;
     }
-    .pesan-maaf p {
-      color: #ffffff; /* Putih terang */
+
+    .teks-kecil {
+      color: rgba(255, 255, 255, 0.8); /* Putih agak transparan agar soft */
       font-family: 'Arial', sans-serif;
-      font-size: 1.1rem;
-      font-style: italic;
-      line-height: 1.5;
-      margin: 0;
-      text-shadow: 2px 2px 4px #000;
-      animation: munculPelan 4s ease-in forwards;
+      font-size: 0.9rem; /* Ukuran lebih kecil sesuai permintaan */
+      line-height: 1.6;
+      background: rgba(0, 0, 0, 0.4); 
+      padding: 15px;
+      border-radius: 10px;
+      animation: munculHalus 4s ease-in forwards;
     }
-    @keyframes munculPelan {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    @keyframes munculHalus {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body class="not-loaded">
   <div class="night"></div>
 
-  <div class="pesan-maaf">
-    <p>"aku minta maaf yaa sayang atas beberapa kekurangan aku, aku sadar aku masihh perlu banyak berubah agar bisa jadi lebih baik kedepan nya, buat aku, dan juga buat ko"</p>
+  <div class="pesan-paling-atas">
+    <div class="teks-kecil">
+      "aku minta maaf yaa sayang atas beberapa kekurangan aku, aku sadar aku masihh perlu banyak berubah agar bisa jadi lebih baik kedepan nya, buat aku, dan juga buat ko"
+    </div>
   </div>
 
   <div class="flowers">
       </div>
 
+  <h1 class="title"><span id="title"></span></h1>
+
   <audio id="laguKeabadian" src="Reza_-_keabadian_(mp3.pm).mp3" loop autoplay></audio>
 
   <script src="js/main.js"></script>
   <script>
-    // Memastikan musik menyala
+    // Klik layar sekali untuk mengaktifkan musik
     window.addEventListener('click', function() {
         document.getElementById('laguKeabadian').play();
     }, { once: true });
