@@ -2,73 +2,132 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="images/gift.png" type="image/x-icon">
   <link rel="stylesheet" href="css/style.css">
-  <title>MAWAR MERAH HIDUP</title>
+  <link rel="shortcut icon" href="images/gift.png" type="image/x-icon">
+  <title>ALIVE RED ROSES & FIREFLIES</title>
   <style>
-    /* 1. PAKSA WARNA MAWAR MERAH KE STRUKTUR ASLI */
-    .flower__leaf {
-      background-color: #ff0000 !important;
-      background-image: linear-gradient(to top, #8b0000, #ff0000) !important;
-      border-radius: 50% 50% 20% 20% !important;
+    /* 1. CSS UTAMA & LATAR BELAKANG MALAM BERBINTANG */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
     }
-    .flower__white-circle {
-      background-color: #4a0000 !important;
-      border: 1px solid #ff0000 !important;
+    .night-alive {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
     }
 
-    /* 2. TEKS NEON PUTIH TANPA KOTAK */
+    /* 2. TEKS NEON PUTIH TANPA KOTAK HITAM */
     .container-pesan-baru {
       position: fixed;
-      top: 20%; left: 50%;
+      top: 25%;
+      left: 50%;
       transform: translate(-50%, -50%);
-      width: 85%; text-align: center;
+      width: 85%;
+      text-align: center;
       z-index: 99999 !important;
     }
     .teks-neon-putih {
-      color: #fff; font-family: sans-serif; font-size: 0.8rem;
-      line-height: 1.6; background: none !important;
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      line-height: 1.6;
+      background: none !important; /* Menghilangkan kotak hitam */
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffffff;
+      animation: fadeInTeks 5s forwards;
+    }
+    @keyframes fadeInTeks {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    /* 3. KUPU-KUPU TERBANG (BIAR HIDUP) */
-    .butterfly {
-      position: fixed; width: 10px; height: 10px;
-      background: #ffcc00; border-radius: 50%;
-      z-index: 1000; filter: blur(1px);
-      animation: flyAround 15s infinite linear;
+    /* 3. UBAH WARNA JADI BUNGA MAWAR MERAH (RED ROSES) */
+    .flower__leaf {
+      background-color: #e60000 !important; /* Merah mawar menyala */
+      background-image: linear-gradient(to top, #e60000, #ff4d4d) !important;
     }
-    @keyframes flyAround {
-      0% { transform: translate(0, 100vh) rotate(0deg); }
-      25% { transform: translate(80vw, 50vh) rotate(90deg); }
-      50% { transform: translate(20vw, 20vh) rotate(180deg); }
-      75% { transform: translate(90vw, 70vh) rotate(270deg); }
-      100% { transform: translate(0, 100vh) rotate(360deg); }
+    .flower__white-circle {
+      background-color: #ffda00 !important; /* Kuning keemasan tengah mawar */
     }
 
-    /* 4. KUNANG-KUNANG */
+    /* 4. HAPUS TOTAL TULISAN 'I LOVE U' */
+    .title, #title, h1 { 
+      display: none !important; 
+    }
+
+    /* 5. HAMPARAN RUMPUT HIDUP & BERGOYANG */
+    .grass-alive {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 15vh; /* Tinggi rumput */
+      z-index: 5;
+      pointer-events: none;
+    }
+    .blade {
+      position: absolute;
+      bottom: 0;
+      width: 4px;
+      height: 40px;
+      background: linear-gradient(to top, #1a4d1a, #33cc33);
+      border-radius: 5px 5px 0 0;
+      transform-origin: bottom;
+      animation: sway 3s ease-in-out infinite alternate;
+    }
+    @keyframes sway {
+      0% { transform: rotate(-5deg); }
+      100% { transform: rotate(5deg); }
+    }
+
+    /* 6. KUNANG-KUNANG BERKELAP-KELIP */
+    .fireflies-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
     .firefly {
-      position: absolute; width: 4px; height: 4px;
-      background: #ffff99; border-radius: 50%;
-      box-shadow: 0 0 10px #ff0; animation: blink 3s infinite;
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background-color: #ffff99; /* Kuning pucat kunang-kunang */
+      border-radius: 50%;
+      opacity: 0;
+      box-shadow: 0 0 10px #ffff99, 0 0 20px #ffff00;
+      animation: flicker 4s infinite alternate;
     }
-    @keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
-
-    /* HAPUS JUDUL ASLI */
-    .title, #title { display: none !important; }
+    @keyframes flicker {
+      0% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1.2); }
+      100% { opacity: 0; transform: scale(0.5); }
+    }
   </style>
 </head>
 <body class="not-loaded">
-  <div class="night"></div>
+  <div class="night-alive"></div>
 
-  <div class="butterfly" style="animation-delay: 0s;"></div>
-  <div class="butterfly" style="animation-delay: 5s;"></div>
+  <div class="fireflies-container">
+    <div class="firefly" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="firefly" style="top: 40%; left: 30%; animation-delay: 1s;"></div>
+    <div class="firefly" style="top: 60%; left: 50%; animation-delay: 2s;"></div>
+    <div class="firefly" style="top: 80%; left: 70%; animation-delay: 3s;"></div>
+    <div class="firefly" style="top: 10%; left: 90%; animation-delay: 4s;"></div>
+  </div>
 
   <div class="container-pesan-baru">
     <p class="teks-neon-putih">
-      "aku minta maaf yaa sayang, aku semalam betul" ngerasa bersalah karena kurang menghargai ko apalagii ko nya udah mau excited untuk ceritaa, bukann maksud aku untukk mengungkit lagii kok, aku cuman masih di penuhi rasa bersalah, tapi aku bakal terus berubah agarr jadi yang terbaik buat ko sayang, dan aku bakal selalu ada untuk ko sayangg..."
+      "aku minta maaf yaa sayang, aku semalam betul" ngerasa bersalah karena kurang menghargai ko apalagii ko nya udah mau excited untuk ceritaa, bukann maksud aku untukk mengungkit lagii kok, aku cuman masih di penuhi rasa bersalah, tapi aku bakal terus berubah agarr jadi yang terbaik buat ko sayang, dan aku bakal selalu ada untuk ko sayangg, aku ngerasa aku banyak kurang, tapi aku bakal berusaha untuk jadi yang terbaik, bagi diri aku, dan untuk ko"
     </p>
   </div>
 
@@ -86,7 +145,6 @@
         <div class="flower__line__leaf flower__line__leaf--2"></div>
       </div>
     </div>
-
     <div class="flower flower--2">
       <div class="flower__leafs flower__leafs--2">
         <div class="flower__leaf flower__leaf--1"></div>
@@ -97,7 +155,6 @@
       </div>
       <div class="flower__line"></div>
     </div>
-
     <div class="flower flower--3">
       <div class="flower__leafs flower__leafs--3">
         <div class="flower__leaf flower__leaf--1"></div>
@@ -108,33 +165,23 @@
       </div>
       <div class="flower__line"></div>
     </div>
+    <div class="grow-ans" style="--d:1.2s"><div class="flower__g-long"><div class="flower__g-long__top"></div><div class="flower__g-long__bottom"></div></div></div>
+  </div>
 
-    <div class="grow-ans" style="--d:1.2s">
-      <div class="flower__g-long">
-        <div class="flower__g-long__top"></div>
-        <div class="flower__g-long__bottom"></div>
-      </div>
-    </div>
-
-    <div class="growing-grass">
-      <div class="flower__grass flower__grass--1">
-        <div class="flower__grass--top"></div>
-        <div class="flower__grass--bottom"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
-        <div class="flower__grass__overlay"></div>
-      </div>
-    </div>
-
-    <div class="long-g long-g--0">
-      <div class="grow-ans" style="--d:3s"><div class="leaf leaf--0"></div></div>
-    </div>
-    <div class="long-g long-g--1">
-      <div class="grow-ans" style="--d:3.6s"><div class="leaf leaf--0"></div></div>
-    </div>
+  <div class="grass-alive">
+    <div class="blade" style="left: 10%; height: 35px; animation-delay: 0s;"></div>
+    <div class="blade" style="left: 20%; height: 45px; animation-delay: 0.2s;"></div>
+    <div class="blade" style="left: 30%; height: 30px; animation-delay: 0.4s;"></div>
+    <div class="blade" style="left: 40%; height: 50px; animation-delay: 0.6s;"></div>
+    <div class="blade" style="left: 50%; height: 38px; animation-delay: 0.8s;"></div>
+    <div class="blade" style="left: 60%; height: 42px; animation-delay: 1.0s;"></div>
+    <div class="blade" style="left: 70%; height: 32px; animation-delay: 1.2s;"></div>
+    <div class="blade" style="left: 80%; height: 48px; animation-delay: 1.4s;"></div>
+    <div class="blade" style="left: 90%; height: 36px; animation-delay: 1.6s;"></div>
   </div>
 
   <audio id="laguKeabadian" src="Reza_-_keabadian_(mp3.pm).mp3" loop autoplay></audio>
+
   <script src="js/main.js"></script>
   <script>
     window.addEventListener('click', function() {
