@@ -31,6 +31,18 @@
   </div>
 
   <script src="js/index.js"></script>
+  <audio id="laguKeabadian" src="Reza_-_keabadian_(mp3.pm).mp3" loop></audio>
+
+<script>
+  // Musik akan berputar saat layar pertama kali diklik
+  window.addEventListener('click', function() {
+      const audio = document.getElementById('laguKeabadian');
+      audio.play().catch(function(error) {
+          console.log("Gagal putar musik: ", error);
+      });
+  }, { once: true });
+</script>
+
 </body>
 
 </html>
