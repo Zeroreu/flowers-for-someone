@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="images/gift.png" type="image/x-icon">
-  <title>FLOWERS FOR YOU</title>
+  <title>SUNFLOWERS FOR YOU</title>
   <style>
-    /* 1. MENGHILANGKAN KOTAK HITAM & MEWARNAI TEKS JADI NEON PUTIH */
+    /* 1. TEKS NEON PUTIH (GAYA I LOVE U) TANPA KOTAK HITAM */
     .container-pesan-baru {
       position: fixed;
-      top: 30%; /* Posisi di atas bunga */
+      top: 25%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 85%;
@@ -21,14 +21,10 @@
     .teks-neon-putih {
       color: #fff;
       font-family: 'Arial', sans-serif;
-      font-size: 0.9rem; /* Ukuran kecil sesuai permintaanmu */
+      font-size: 0.85rem;
       line-height: 1.6;
-      background: none !important; /* MENGHAPUS KOTAK HITAM */
-      /* EFEK NEON PUTIH SEPERTI I LOVE U */
-      text-shadow: 0 0 5px #fff, 
-                   0 0 10px #fff, 
-                   0 0 20px #fff, 
-                   0 0 30px #ffffff;
+      background: none !important; /* Menghilangkan kotak hitam */
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffffff;
       animation: fadeIn 5s forwards;
     }
 
@@ -37,11 +33,21 @@
       to { opacity: 1; }
     }
 
-    /* 2. MENGHAPUS TOTAL TULISAN 'I LOVE U' */
+    /* 2. UBAH WARNA JADI BUNGA MATAHARI */
+    .flower__leaf {
+      background-color: #ffda00 !important; /* Kuning bunga matahari */
+      background-image: linear-gradient(to top, #ffda00, #ffb700) !important;
+    }
+    .flower__white-circle {
+      background-color: #3e2723 !important; /* Cokelat gelap tengah bunga matahari */
+    }
+    .flower__light {
+      background-color: rgba(255, 218, 0, 0.5) !important; /* Cahaya kuning */
+    }
+
+    /* 3. HAPUS TOTAL TULISAN 'I LOVE U' */
     .title, #title, h1 { 
       display: none !important; 
-      opacity: 0 !important;
-      visibility: hidden !important;
     }
   </style>
 </head>
