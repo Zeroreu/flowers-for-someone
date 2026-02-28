@@ -5,39 +5,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <title>MAWAR MERAH & RUMPUT ASLI</title>
+  <title>MAWAR MERAH RIMBUN</title>
   <style>
-    /* 1. HANYA GANTI WARNA BUNGA JADI MERAH (RUMPUT TETAP ASLI) */
-    .flower__leaf {
+    /* PAKSA WARNA MERAH UNTUK SEMUA JENIS BUNGA */
+    .flower__leaf, .flower__g-fr__leaf, .flower__grass__leaf {
       background-image: linear-gradient(to top, #8b0000, #ff0000) !important;
     }
-    .flower__white-circle {
-      background-color: #4a0000 !important;
-    }
-
-    /* 2. TEKS MAAF KECIL & HAPUS I LOVE U */
+    .flower__white-circle { background-color: #4a0000 !important; }
+    
+    /* TEKS MAAF KECIL */
     .container-pesan-baru {
-      position: fixed; top: 18%; left: 50%;
+      position: fixed; top: 15%; left: 50%;
       transform: translate(-50%, -50%);
       width: 80%; text-align: center; z-index: 10000;
     }
-    .teks-maaf-kecil {
-      color: #fff; font-family: sans-serif; font-size: 0.7rem;
-      line-height: 1.5; text-shadow: 0 0 10px #fff;
+    .teks-kecil {
+      color: #fff; font-family: sans-serif; font-size: 0.65rem;
+      line-height: 1.4; text-shadow: 0 0 10px #fff;
     }
     .title, #title { display: none !important; }
 
-    /* 3. TAMBAHAN KUNANG-KUNANG */
+    /* KUNANG-KUNANG */
     .firefly {
       position: fixed; width: 3px; height: 3px; background: #ffffaa;
       border-radius: 50%; box-shadow: 0 0 8px #ffff00;
       z-index: 999; pointer-events: none;
       animation: flyFirefly 8s infinite ease-in-out alternate, blink 2s infinite;
     }
-    @keyframes flyFirefly {
-      0% { transform: translate(0,0); }
-      100% { transform: translate(60px, -150px); }
-    }
+    @keyframes flyFirefly { 0% { transform: translate(0,0); } 100% { transform: translate(50px, -150px); } }
     @keyframes blink { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
   </style>
 </head>
@@ -45,7 +40,7 @@
   <div class="night"></div>
 
   <div class="container-pesan-baru">
-    <p class="teks-maaf-kecil">
+    <p class="teks-kecil">
       "aku minta maaf yaa sayang, aku semalam betul" ngerasa bersalah karena kurang menghargai ko apalagii ko nya udah mau excited untuk ceritaa, bukann maksud aku untukk mengungkit lagii kok, aku cuman masih di penuhi rasa bersalah, tapi aku bakal terus berubah agarr jadi yang terbaik buat ko sayang, dan aku bakal selalu ada untuk ko sayangg, aku ngerasa aku banyak kurang, tapi aku bakal berusaha untuk jadi yang terbaik, bagi diri aku, dan untuk ko"
     </p>
   </div>
@@ -54,26 +49,28 @@
 
   <div class="flowers">
     <div class="flower flower--1">
-      <div class="flower__leafs flower__leafs--1">
+      <div class="flower__leafs">
         <div class="flower__leaf flower__leaf--1"></div><div class="flower__leaf flower__leaf--2"></div>
         <div class="flower__leaf flower__leaf--3"></div><div class="flower__leaf flower__leaf--4"></div>
         <div class="flower__white-circle"></div>
       </div>
-      <div class="flower__line">
-        <div class="flower__line__leaf flower__line__leaf--1"></div><div class="flower__line__leaf flower__line__leaf--2"></div>
-      </div>
+      <div class="flower__line"><div class="flower__line__leaf flower__line__leaf--1"></div></div>
     </div>
 
-    <div class="grow-ans" style="--d:1.2s">
-      <div class="flower__g-long">
-        <div class="flower__g-long__top"></div><div class="flower__g-long__bottom"></div>
+    <div class="flower flower--2">
+      <div class="flower__leafs">
+        <div class="flower__leaf flower__leaf--1"></div><div class="flower__leaf flower__leaf--2"></div>
+        <div class="flower__leaf flower__leaf--3"></div><div class="flower__leaf flower__leaf--4"></div>
+        <div class="flower__white-circle"></div>
       </div>
+      <div class="flower__line"><div class="flower__line__leaf flower__line__leaf--1"></div></div>
     </div>
 
     <div class="growing-grass">
       <div class="flower__grass flower__grass--1">
         <div class="flower__grass--top"></div><div class="flower__grass--bottom"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--1"></div><div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
         <div class="flower__grass__overlay"></div>
       </div>
     </div>
@@ -81,7 +78,6 @@
     <div class="long-g long-g--0">
       <div class="grow-ans" style="--d:3s"><div class="leaf leaf--0"></div></div>
       <div class="grow-ans" style="--d:2.2s"><div class="leaf leaf--1"></div></div>
-      <div class="grow-ans" style="--d:3.4s"><div class="leaf leaf--2"></div></div>
     </div>
 
     <div class="long-g long-g--1">
@@ -94,7 +90,7 @@
   <script src="js/main.js"></script>
   <script>
     const box = document.getElementById('fireflies');
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 25; i++) {
         const f = document.createElement('div');
         f.className = 'firefly';
         f.style.left = Math.random() * 100 + 'vw';
